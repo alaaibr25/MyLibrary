@@ -8,7 +8,7 @@ from sqlalchemy import Integer, String, Float
 
 
 app = Flask(__name__)
-app.secret_key = "njkm,ewdshxnjm,37284873gbhcuyh"
+app.secret_key = ""
 
 #-----------------------------------------------------------------------#
 #🟡 SQLAlchemy
@@ -17,7 +17,7 @@ class Base(DeclarativeBase):
     pass
 
 db = SQLAlchemy(model_class=Base)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///books-collection.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///.db"
 db.init_app(app)
 
 class Book(db.Model):
