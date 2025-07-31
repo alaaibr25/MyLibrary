@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title%}Update{%endblock%}
+{% block head %}{%endblock%}
+
+{% block content %}
+<h4>Book Name: {{ book.title }}</h4>
+<h4>Current rating: {{ book.rate }} </h4>
+
+<form action="/update" method="POST">
+  <input  name="id" value="{{book.id}}" hidden>
+    <input type="text" name="new_rate" >
+
+  <button type="submit">Update</button>
+</form>
+
+{%endblock%}

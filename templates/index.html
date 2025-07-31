@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title%}MAIN{%endblock%}
+{% block head %}{%endblock%}
+
+{% block content %}
+<h1>My Library </h1>
+{% if books == [] %}
+    <p>Library is empty.</p>
+{%else%}
+<ul>
+    {%for b in books%}
+    <li>{{b['title']}} - {{ b['author']}} - {{b['rate']}}/10
+        <a href="{{ url_for('update_rate', id=b['id']) }}">Edit Rating</a>
+        <a href="{{ url_for('delete_book', id=b['id'])}}">Delete</a>
+    </li>
+    {%endfor%}
+</ul>
+{%endif%}
+
+<a href="{{ url_for('add_page')}}">Add New Book</a>
+
+
+{%endblock%}
